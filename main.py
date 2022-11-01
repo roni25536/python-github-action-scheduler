@@ -9,6 +9,7 @@ def job():
     limit = 1
     res = requests.get('https://www.zipy.co.il/api/product/getPromoProducts',
                        params={'shopIds': ["aliexpress"], 'limit': limit})
+    print(res.text)  
     res = res.json().get('result')
     products = list(map(lambda p: {**p, 'url': webUrl + ('-'.join(p.get('name').lower().split(' '))) + '/' + p.get(
         'id') + userName}, res))
