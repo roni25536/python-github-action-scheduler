@@ -7,7 +7,8 @@ def job():
     webUrl = 'https://www.zipy.co.il/p/%D7%90%D7%9C%D7%99%D7%90%D7%A7%D7%A1%D7%A4%D7%A8%D7%A1/'
     userName = "/#roni25536"
     limit = 1
-    res = requests.get('https://www.zipy.co.il/api/product/getPromoProducts',
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:20.0) Gecko/20100101 Firefox/20.0'}
+    res = requests.get('https://www.zipy.co.il/api/product/getPromoProducts',headers=headers ,
                        params={'shopIds': ["aliexpress"], 'limit': limit})
     print(res.text)  
     res = res.json().get('result')
